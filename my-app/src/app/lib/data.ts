@@ -4,6 +4,22 @@ export interface Subject {
   credits: number;
 }
 
+export interface SpecStudent {
+  studentId: string;
+  focus: string;
+}
+
+export interface Spec {
+  id: string;
+  name: string;
+  trackCode: string;
+  description: string;
+  academicLead: string;
+  primaryCoreLab: string;
+  curriculumCycle: string;
+  students: SpecStudent[];
+}
+
 export interface Student {
   id: string;
   studentId: string;
@@ -217,10 +233,65 @@ export const departments = [
     icon: "cs",
     color: "#dbeafe",
     iconColor: "#2563eb",
-    description:
-      "Software engineering, artificial intelligence, algorithms, and systems infrastructure.",
+    description: "Software engineering, artificial intelligence, algorithms, and systems infrastructure.",
     specializations: 4,
     enrolledStudents: 320,
+    specs: [
+      {
+        id: "web-development",
+        name: "Web Development",
+        trackCode: "CS-SPEC-04",
+        description: "Focusing on modern frontend architectures, full-stack frameworks, reactive interfaces, and distributed web APIs.",
+        academicLead: "Prof. Elena Vance",
+        primaryCoreLab: "Turing Hall 408",
+        curriculumCycle: "2024–2025 Revised",
+        students: [
+          { studentId: "aarav-mehta",       focus: "Full-Stack Architecture" },
+          { studentId: "priya-sharma",      focus: "Reactive UI Design" },
+          { studentId: "tariq-al-mansoor",  focus: "Distributed Web Systems" },
+          { studentId: "sophia-muller",     focus: "Progressive Web Apps" },
+        ],
+      },
+      {
+        id: "ai-machine-learning",
+        name: "AI & Machine Learning",
+        trackCode: "CS-SPEC-01",
+        description: "Exploring intelligent systems, deep learning, natural language processing, and autonomous decision-making frameworks.",
+        academicLead: "Prof. David Kim",
+        primaryCoreLab: "Neuro-AI Lab, Room 301",
+        curriculumCycle: "2024–2025 Core",
+        students: [
+          { studentId: "aarav-mehta",      focus: "ML Systems Design" },
+          { studentId: "tariq-al-mansoor", focus: "Computer Vision Research" },
+        ],
+      },
+      {
+        id: "systems-security",
+        name: "Systems & Security",
+        trackCode: "CS-SPEC-02",
+        description: "Advanced operating systems, cryptographic protocols, network security, and formal verification methods.",
+        academicLead: "Prof. Nadia Hassan",
+        primaryCoreLab: "SecLab, Room 215",
+        curriculumCycle: "2024–2025 Core",
+        students: [
+          { studentId: "sophia-muller",    focus: "Network Defense Systems" },
+          { studentId: "tariq-al-mansoor", focus: "Secure System Design" },
+        ],
+      },
+      {
+        id: "cloud-infrastructure",
+        name: "Cloud Infrastructure",
+        trackCode: "CS-SPEC-03",
+        description: "Distributed cloud computing, containerization, DevOps pipelines, and scalable architecture patterns.",
+        academicLead: "Prof. James Okoye",
+        primaryCoreLab: "Cloud Lab, Room 402",
+        curriculumCycle: "2024–2025 Core",
+        students: [
+          { studentId: "priya-sharma",  focus: "Cloud Architecture" },
+          { studentId: "aarav-mehta",   focus: "Distributed Computing" },
+        ],
+      },
+    ] as Spec[],
   },
   {
     id: "design",
@@ -228,10 +299,50 @@ export const departments = [
     icon: "design",
     color: "#ede9fe",
     iconColor: "#7c3aed",
-    description:
-      "User experience research, visual communication, interaction design, and product prototyping.",
+    description: "User experience research, visual communication, interaction design, and product prototyping.",
     specializations: 3,
     enrolledStudents: 185,
+    specs: [
+      {
+        id: "interaction-design",
+        name: "Interaction Design",
+        trackCode: "DES-SPEC-01",
+        description: "Human-computer interaction principles, usability testing, accessibility, and inclusive design methodologies.",
+        academicLead: "Prof. Maria Santos",
+        primaryCoreLab: "HCI Studio, Room 104",
+        curriculumCycle: "2024–2025 Core",
+        students: [
+          { studentId: "elena-rostova", focus: "Interaction Research" },
+          { studentId: "lucas-dubois",  focus: "Product Strategy" },
+        ],
+      },
+      {
+        id: "motion-design",
+        name: "Motion Design",
+        trackCode: "DES-SPEC-02",
+        description: "Animation principles, kinetic typography, interactive motion, and multimedia storytelling techniques.",
+        academicLead: "Prof. Yuki Tanaka",
+        primaryCoreLab: "Motion Lab, Room 212",
+        curriculumCycle: "2024–2025 Core",
+        students: [
+          { studentId: "lucas-dubois",  focus: "Motion Systems" },
+          { studentId: "elena-rostova", focus: "Animation Research" },
+        ],
+      },
+      {
+        id: "brand-visual-systems",
+        name: "Brand & Visual Systems",
+        trackCode: "DES-SPEC-03",
+        description: "Identity design, visual language development, systematic design thinking, and cross-platform brand strategy.",
+        academicLead: "Prof. Ines Pereira",
+        primaryCoreLab: "Visual Studio, Room 118",
+        curriculumCycle: "2024–2025 Revised",
+        students: [
+          { studentId: "elena-rostova", focus: "Visual Language" },
+          { studentId: "lucas-dubois",  focus: "Brand Identity" },
+        ],
+      },
+    ] as Spec[],
   },
   {
     id: "business",
@@ -239,10 +350,49 @@ export const departments = [
     icon: "business",
     color: "#dbeafe",
     iconColor: "#2563eb",
-    description:
-      "Strategic management, financial technology, international entrepreneurship, and analytics.",
+    description: "Strategic management, financial technology, international entrepreneurship, and analytics.",
     specializations: 3,
     enrolledStudents: 240,
+    specs: [
+      {
+        id: "venture-finance",
+        name: "Venture Finance",
+        trackCode: "BUS-SPEC-01",
+        description: "Startup financing, venture capital deal structures, equity valuation, and investment portfolio management.",
+        academicLead: "Prof. Alex Morgan",
+        primaryCoreLab: "Finance Lab, Room 501",
+        curriculumCycle: "2024–2025 Core",
+        students: [
+          { studentId: "marcus-chen", focus: "VC Investment Strategy" },
+        ],
+      },
+      {
+        id: "strategic-management",
+        name: "Strategic Management",
+        trackCode: "BUS-SPEC-02",
+        description: "Corporate strategy, competitive positioning, M&A analysis, and organizational leadership frameworks.",
+        academicLead: "Prof. Clara Benson",
+        primaryCoreLab: "Strategy Suite, Room 503",
+        curriculumCycle: "2024–2025 Core",
+        students: [
+          { studentId: "marcus-chen", focus: "Corporate Growth Strategy" },
+          { studentId: "maya-lin",    focus: "Business Analytics" },
+        ],
+      },
+      {
+        id: "sustainable-economics",
+        name: "Sustainable Economics",
+        trackCode: "BUS-SPEC-03",
+        description: "ESG reporting, impact investing, green bond markets, and sustainability accounting for global enterprises.",
+        academicLead: "Prof. Rajan Mehta",
+        primaryCoreLab: "Eco-Finance Lab, Room 412",
+        curriculumCycle: "2024–2025 Revised",
+        students: [
+          { studentId: "maya-lin",    focus: "ESG Finance" },
+          { studentId: "marcus-chen", focus: "Impact Metrics" },
+        ],
+      },
+    ] as Spec[],
   },
 ];
 
@@ -254,4 +404,13 @@ export function getStudentsByDepartment(dept: string): Student[] {
   return students.filter(
     (s) => s.department.toLowerCase() === dept.toLowerCase()
   );
+}
+
+export function getDepartmentById(id: string) {
+  return departments.find((d) => d.id === id);
+}
+
+export function getSpecById(deptId: string, specId: string) {
+  const dept = getDepartmentById(deptId);
+  return dept?.specs.find((s) => s.id === specId);
 }
