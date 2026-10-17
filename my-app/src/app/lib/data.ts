@@ -214,42 +214,35 @@ export const departments = [
   {
     id: "computer-science",
     name: "Computer Science",
-    icon: "💻",
+    icon: "cs",
     color: "#dbeafe",
+    iconColor: "#2563eb",
     description:
-      "Covering algorithms, systems programming, software engineering, AI, and more.",
+      "Software engineering, artificial intelligence, algorithms, and systems infrastructure.",
+    specializations: 4,
+    enrolledStudents: 320,
   },
   {
     id: "design",
     name: "Design",
-    icon: "🎨",
-    color: "#fce7f3",
+    icon: "design",
+    color: "#ede9fe",
+    iconColor: "#7c3aed",
     description:
-      "Visual communication, interaction design, motion graphics, and UX research.",
+      "User experience research, visual communication, interaction design, and product prototyping.",
+    specializations: 3,
+    enrolledStudents: 185,
   },
   {
     id: "business",
     name: "Business",
-    icon: "📈",
-    color: "#ffedd5",
+    icon: "business",
+    color: "#dbeafe",
+    iconColor: "#2563eb",
     description:
-      "Entrepreneurship, finance, strategic management, and sustainable economics.",
-  },
-  {
-    id: "mathematics",
-    name: "Mathematics",
-    icon: "∑",
-    color: "#fce7f3",
-    description:
-      "Pure and applied math including algebra, topology, analysis, and cryptography.",
-  },
-  {
-    id: "data-science",
-    name: "Data Science",
-    icon: "📊",
-    color: "#dcfce7",
-    description:
-      "Statistical learning, data engineering, machine learning, and visualization.",
+      "Strategic management, financial technology, international entrepreneurship, and analytics.",
+    specializations: 3,
+    enrolledStudents: 240,
   },
 ];
 
