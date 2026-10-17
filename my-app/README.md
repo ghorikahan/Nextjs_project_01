@@ -1,36 +1,158 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎓 Campus Directory — Academic & Student Information Portal
 
-## Getting Started
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Styling-Vanilla%20CSS-ff69b4?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License" />
+</p>
 
-First, run the development server:
+An elegant, high-performance academic registry and student management platform built with **Next.js 15 App Router**, **React 19**, and a custom **Vanilla CSS** design system. Designed with deep nested routing, dynamic metadata, React Suspense boundaries, and scoped 404 recovery routes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 📸 Overview & Key Features
+
+- **⚡ Next.js 15 Architecture**: Implements modern async route params (`await params`), static generation (`generateStaticParams`), dynamic metadata (`generateMetadata`), and React `<Suspense>` streaming boundaries.
+- **📂 Deep Nested Routing**:
+  - Multi-tier dynamic department paths: `/departments` ➔ `/departments/[id]` ➔ `/departments/[id]/[specId]`.
+  - Scoped breadcrumb navigation reflecting hierarchy with zero layout shift.
+- **👨‍🎓 Student Management & Registry**:
+  - Comprehensive student directory with search, filtering, and enrollment status.
+  - Granular student profile pages with academic credits, subjects, and verification metadata.
+- **🛡️ Multi-Level Scoped 404 Pages**:
+  - Global `not-found.tsx` fallback for broken URLs.
+  - Department-scoped `departments/[id]/not-found.tsx` with dynamic suggestions for active academic faculties.
+  - Student-scoped `students/[id]/not-found.tsx` with suggested student profiles and quick directory actions.
+- **🎨 Bespoke Design System**:
+  - Custom Vanilla CSS (`globals.css`) with CSS custom properties for effortless theming.
+  - Micro-animations: pulsing radar rings on error states, interactive hover cards, and clean typography.
+  - Fully responsive from mobile devices to ultra-wide displays.
+
+---
+
+## 🗺️ Route Architecture
+
+| Route | Dynamic Params | Type | Description |
+| :--- | :--- | :--- | :--- |
+| `/` | — | Static | Dashboard with quick stats, highlights, and direct navigation hubs |
+| `/students` | — | Client Filtered | Complete student directory with live search and filter tags |
+| `/students/[id]` | `id` | Dynamic / Suspense | Detailed individual student profile, credits, courses, and status |
+| `/departments` | — | Static | Overview of faculties, chairs, student counts, and specializations |
+| `/departments/[id]` | `id` | Dynamic / Suspense | Department portal with faculty info, courses, and specialization lists |
+| `/departments/[id]/[specId]` | `id`, `specId` | Nested Dynamic | Deep specialization track page with lab info, lead, and student roster |
+| `/about` | — | Static | Platform architecture, tech stack details, and institutional background |
+
+---
+
+## 📁 Project Structure
+
+```text
+my-app/
+├── public/                 # Static assets & icons
+├── src/
+│   └── app/
+│       ├── layout.tsx      # Root HTML shell & navigation bar
+│       ├── page.tsx        # Campus dashboard home
+│       ├── globals.css     # Bespoke design system & utility tokens
+│       ├── not-found.tsx   # Global 404 not-found page
+│       ├── about/
+│       │   └── page.tsx    # Platform about page
+│       ├── departments/
+│       │   ├── page.tsx    # Departments directory
+│       │   ├── not-found.tsx
+│       │   └── [id]/
+│       │       ├── page.tsx        # Department detail page
+│       │       ├── not-found.tsx   # Scoped department 404 page
+│       │       └── [specId]/
+│       │           └── page.tsx    # Nested specialization detail page
+│       ├── students/
+│       │   ├── page.tsx    # Student search & directory
+│       │   ├── not-found.tsx
+│       │   └── [id]/
+│       │       ├── page.tsx        # Student profile page
+│       │       └── not-found.tsx   # Scoped student 404 page
+│       └── lib/
+│           └── data.ts     # Academic database models, mock data, & helper utilities
+├── next.config.ts          # Next.js configuration (cacheComponents, compiler settings)
+├── tsconfig.json           # TypeScript strict configuration
+└── package.json            # Project dependencies & scripts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
 
-## Learn More
+- **Node.js**: `v18.18.0` or higher
+- **npm**, **pnpm**, or **yarn**
 
-To learn more about Next.js, take a look at the following resources:
+### Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/student-directory.git
+   cd student-directory/Nextjs_project_01/my-app
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. **Start the local development server**:
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Open in browser**:
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🛠️ Build & Production
+
+To verify types, compile static pages, and produce an optimized production bundle:
+
+```bash
+# Build production bundle
+npm run build
+
+# Start production server
+npm run start
+
+# Run linter
+npm run lint
+```
+
+---
+
+## 💡 Engineering Highlights
+
+### 1. Handling Asynchronous Route Params in Next.js 15
+In Next.js 15, dynamic route parameters are resolved as asynchronous promises. This codebase adheres strictly to the recommended Suspense-separated pattern:
+
+```tsx
+// Page shell awaits params and delegates to Suspense
+export default async function SpecPage({ params }: Props) {
+  return (
+    <Suspense fallback={<SpecSkeleton />}>
+      <SpecContentWrapper params={params} />
+    </Suspense>
+  );
+}
+```
+
+### 2. Multi-Tier Error Recovery
+Instead of dumping users to an unstyled default error screen, every key section provides contextual recovery options:
+- **Direct breadcrumbs** returning up the hierarchy
+- **Active suggested records** (e.g., active departments or top enrolled students)
+- **Deep links** back to the primary registry indexes
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
