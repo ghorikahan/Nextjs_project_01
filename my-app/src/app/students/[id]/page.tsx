@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { students, getStudentById } from "../../lib/data";
 import type { Metadata } from "next";
 
+export const instant = false;
+
 // Generate static params for all students
 export async function generateStaticParams() {
   return students.map((s) => ({ id: s.id }));
@@ -31,7 +33,7 @@ export default async function StudentProfilePage({
   const { id } = await params;
   const student = getStudentById(id);
 
-  if (!student) notFound();
+  if (!student) return notFound();
 
   return (
     <div className="page-wrapper">
